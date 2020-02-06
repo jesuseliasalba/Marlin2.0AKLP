@@ -59,6 +59,7 @@
 #define Y_MAX_PIN          P1_27   // (15) 10k pullup to 3.3V, 1K series
 #define Z_MIN_PIN          P1_29   // (18) 10k pullup to 3.3V, 1K series
 #define Z_MAX_PIN          P1_28   // (19) 10k pullup to 3.3V, 1K series
+#define ONBOARD_ENDSTOPPULLUPS     // Board has built-in pullups
 
 //
 // Steppers
@@ -226,6 +227,13 @@
   #endif
 #endif
 
+//RRD Expander
+#define FAN_PIN SERVO0_PIN //Part
+//#define FAN1_PIN SERVO2_PIN //
+#define FAN2_PIN SERVO1_PIN //E
+#define FAN3_PIN SERVO3_PIN //Controller
+
+
 #ifndef FAN_PIN
   #if EITHER(IS_RAMPS_EFB, IS_RAMPS_EFF)          // Hotend, Fan, Bed or Hotend, Fan, Fan
     #define FAN_PIN        RAMPS_D9_PIN
@@ -237,9 +245,6 @@
     #define FAN_PIN        RAMPS_D9_PIN
   #endif
 #endif
-
-#define FAN1_PIN SERVO1_PIN
-#define FAN2_PIN SERVO0_PIN
 
 //
 // Misc. Functions
